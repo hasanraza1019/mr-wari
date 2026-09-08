@@ -14,3 +14,4 @@ export default function Reveal({ children, className = "", as: Tag = "div" }) {
     </Tag>
   );
 }
+

@@ -147,7 +147,7 @@ export function CartProvider({ children }) {
         setTablesError("");
 
         const response = await fetch(
-          "http://localhost:5000/api/tables"
+          "https://mr-wari-backend-production.up.railway.app/api/tables"
         );
 
         const data = await response.json();
@@ -286,4 +286,5 @@ export function useCart() {
 
   return ctx;
 }
+
 

@@ -38,3 +38,4 @@ export default function AnimatedStat({ value, duration = 1200 }) {
 
   return <span ref={ref}>{display}</span>;
 }
+

@@ -84,7 +84,7 @@ export default function BookTable() {
       } catch (e) {}
 
       try {
-        await fetch("http://localhost:5000/api/reservations", {
+        await fetch("https://mr-wari-backend-production.up.railway.app/api/reservations", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({

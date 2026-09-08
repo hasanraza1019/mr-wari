@@ -111,7 +111,7 @@ export default function AdminDashboard() {
       setProductsLoading(true);
       setProductsError("");
 
-      const response = await fetch("http://localhost:5000/api/products", {
+      const response = await fetch("https://mr-wari-backend-production.up.railway.app/api/products", {
         headers: token ? { Authorization: `Bearer ${token}` } : {},
       });
 
@@ -146,7 +146,7 @@ export default function AdminDashboard() {
       setOrdersLoading(true);
       setOrdersError("");
 
-      const response = await fetch("http://localhost:5000/api/orders");
+      const response = await fetch("https://mr-wari-backend-production.up.railway.app/api/orders");
 
       const data = await response.json();
 
@@ -242,8 +242,8 @@ export default function AdminDashboard() {
       setSaving(true);
 
       const url = editingId
-        ? `http://localhost:5000/api/products/${editingId}`
-        : "http://localhost:5000/api/products";
+        ? `https://mr-wari-backend-production.up.railway.app/api/products/${editingId}`
+        : "https://mr-wari-backend-production.up.railway.app/api/products";
 
       const method = editingId ? "PATCH" : "POST";
 
@@ -319,7 +319,7 @@ export default function AdminDashboard() {
     if (!confirmed) return;
 
     try {
-      const response = await fetch(`http://localhost:5000/api/products/${id}`, {
+      const response = await fetch(`https://mr-wari-backend-production.up.railway.app/api/products/${id}`, {
         method: "DELETE",
         headers: token ? { Authorization: `Bearer ${token}` } : {},
       });
@@ -352,7 +352,7 @@ export default function AdminDashboard() {
 
   async function toggleAvailability(product) {
     try {
-      const response = await fetch(`http://localhost:5000/api/products/${product.id}`, {
+      const response = await fetch(`https://mr-wari-backend-production.up.railway.app/api/products/${product.id}`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
@@ -389,7 +389,7 @@ export default function AdminDashboard() {
 
   async function updateStatus(id, status) {
     try {
-      const response = await fetch(`http://localhost:5000/api/orders/${id}/status`, {
+      const response = await fetch(`https://mr-wari-backend-production.up.railway.app/api/orders/${id}/status`, {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ status }),
@@ -1096,7 +1096,7 @@ function ChatSection() {
     try {
       setLoading(true);
 
-      const response = await fetch("http://localhost:5000/api/chat/conversations", {
+      const response = await fetch("https://mr-wari-backend-production.up.railway.app/api/chat/conversations", {
         headers: { Authorization: `Bearer ${token}` },
       });
 
@@ -1301,7 +1301,7 @@ function ReservationsSection({ token }) {
       setLoading(true);
       setError("");
 
-      const response = await fetch("http://localhost:5000/api/reservations", {
+      const response = await fetch("https://mr-wari-backend-production.up.railway.app/api/reservations", {
         headers: { Authorization: `Bearer ${token}` },
       });
 
@@ -1334,7 +1334,7 @@ function ReservationsSection({ token }) {
   async function updateStatus(id, status) {
     try {
       const response = await fetch(
-        `http://localhost:5000/api/reservations/${id}/status`,
+        `https://mr-wari-backend-production.up.railway.app/api/reservations/${id}/status`,
         {
           method: "PATCH",
           headers: {
@@ -1487,7 +1487,7 @@ function ReviewsSection({ token }) {
       setLoading(true);
       setError("");
 
-      const response = await fetch("http://localhost:5000/api/reviews/all", {
+      const response = await fetch("https://mr-wari-backend-production.up.railway.app/api/reviews/all", {
         headers: { Authorization: `Bearer ${token}` },
       });
 
@@ -1520,7 +1520,7 @@ function ReviewsSection({ token }) {
   async function toggleApproval(review) {
     try {
       const response = await fetch(
-        `http://localhost:5000/api/reviews/${review.id}/approval`,
+        `https://mr-wari-backend-production.up.railway.app/api/reviews/${review.id}/approval`,
         {
           method: "PATCH",
           headers: {
@@ -1550,7 +1550,7 @@ function ReviewsSection({ token }) {
     if (!confirmed) return;
 
     try {
-      const response = await fetch(`http://localhost:5000/api/reviews/${id}`, {
+      const response = await fetch(`https://mr-wari-backend-production.up.railway.app/api/reviews/${id}`, {
         method: "DELETE",
         headers: { Authorization: `Bearer ${token}` },
       });
@@ -1695,7 +1695,7 @@ function InventorySection({ token }) {
       setLoading(true);
       setError("");
 
-      const response = await fetch("http://localhost:5000/api/inventory", {
+      const response = await fetch("https://mr-wari-backend-production.up.railway.app/api/inventory", {
         headers: { Authorization: `Bearer ${token}` },
       });
 
@@ -1747,8 +1747,8 @@ function InventorySection({ token }) {
       setSaving(true);
 
       const url = editingId
-        ? `http://localhost:5000/api/inventory/${editingId}`
-        : "http://localhost:5000/api/inventory";
+        ? `https://mr-wari-backend-production.up.railway.app/api/inventory/${editingId}`
+        : "https://mr-wari-backend-production.up.railway.app/api/inventory";
 
       const method = editingId ? "PATCH" : "POST";
 
@@ -1809,7 +1809,7 @@ function InventorySection({ token }) {
     if (!confirmed) return;
 
     try {
-      const response = await fetch(`http://localhost:5000/api/inventory/${id}`, {
+      const response = await fetch(`https://mr-wari-backend-production.up.railway.app/api/inventory/${id}`, {
         method: "DELETE",
         headers: { Authorization: `Bearer ${token}` },
       });
@@ -1832,7 +1832,7 @@ function InventorySection({ token }) {
     const newQty = Math.max(0, Number(item.quantity) + delta);
 
     try {
-      const response = await fetch(`http://localhost:5000/api/inventory/${item.id}`, {
+      const response = await fetch(`https://mr-wari-backend-production.up.railway.app/api/inventory/${item.id}`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
@@ -2056,7 +2056,7 @@ function CustomersSection() {
       setLoading(true);
       setError("");
 
-      const response = await fetch("http://localhost:5000/api/users", {
+      const response = await fetch("https://mr-wari-backend-production.up.railway.app/api/users", {
         headers: { Authorization: `Bearer ${token}` },
       });
 
@@ -2374,7 +2374,7 @@ function SettingsSection() {
       setLoading(true);
       setError("");
 
-      const response = await fetch("http://localhost:5000/api/settings");
+      const response = await fetch("https://mr-wari-backend-production.up.railway.app/api/settings");
       const data = await response.json();
 
       if (!response.ok) {
@@ -2405,7 +2405,7 @@ function SettingsSection() {
     try {
       setSaving(true);
 
-      const response = await fetch("http://localhost:5000/api/settings", {
+      const response = await fetch("https://mr-wari-backend-production.up.railway.app/api/settings", {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
@@ -2456,7 +2456,7 @@ function SettingsSection() {
     try {
       setChangingPassword(true);
 
-      const response = await fetch("http://localhost:5000/api/settings/password", {
+      const response = await fetch("https://mr-wari-backend-production.up.railway.app/api/settings/password", {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",

@@ -38,7 +38,7 @@ export default function TrackOrder() {
       setLoading(true);
       setError("");
 
-      const response = await fetch(`http://localhost:5000/api/orders/${orderId}/track`);
+      const response = await fetch(`https://mr-wari-backend-production.up.railway.app/api/orders/${orderId}/track`);
       const data = await response.json();
 
       if (response.ok && data.order) {

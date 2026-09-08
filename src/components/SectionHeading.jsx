@@ -11,3 +11,4 @@ export default function SectionHeading({ eyebrow, title, description, className 
     </div>
   );
 }
+

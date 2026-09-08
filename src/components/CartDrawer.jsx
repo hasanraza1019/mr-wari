@@ -53,7 +53,7 @@ export default function CartDrawer() {
 
     async function loadTables() {
       try {
-        const response = await fetch("http://localhost:5000/api/tables");
+        const response = await fetch("https://mr-wari-backend-production.up.railway.app/api/tables");
         if (response.ok) {
           const data = await response.json();
           setTables(data.tables || []);
@@ -123,7 +123,7 @@ export default function CartDrawer() {
           quantity: Number(line.qty),
         }));
 
-        const response = await fetch("http://localhost:5000/api/orders", {
+        const response = await fetch("https://mr-wari-backend-production.up.railway.app/api/orders", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({

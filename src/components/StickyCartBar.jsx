@@ -39,3 +39,4 @@ export default function StickyCartBar() {
     </AnimatePresence>
   );
 }
+

@@ -95,7 +95,7 @@ export default function Account() {
       } catch (e) {}
     }
 
-    fetch("http://localhost:5000/api/auth/me", {
+    fetch("https://mr-wari-backend-production.up.railway.app/api/auth/me", {
       headers: { Authorization: `Bearer ${token}` },
     })
       .then(async (res) => {
@@ -477,4 +477,5 @@ export default function Account() {
     </div>
   );
 }
+
 

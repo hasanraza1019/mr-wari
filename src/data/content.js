@@ -554,3 +554,4 @@ export const faqs = [
     a: "Dine-in aur delivery dono par cash on delivery available hai. Online payment options branch manager se confirm kar lein.",
   },
 ];
+

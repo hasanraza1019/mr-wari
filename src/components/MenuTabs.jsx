@@ -17,7 +17,7 @@ import {
 import MenuItemCard from "./MenuItemCard";
 import { allMenuItems } from "../data/content";
 
-const API_URL = "http://localhost:5000/api/products";
+const API_URL = "https://mr-wari-backend-production.up.railway.app/api/products";
 
 const categories = [
   { id: "all", label: "Sab Kuch", icon: UtensilsCrossed },

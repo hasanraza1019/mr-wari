@@ -30,7 +30,7 @@ export default function Home() {
       try {
         setLoadingPopular(true);
 
-        const response = await fetch("http://localhost:5000/api/products");
+        const response = await fetch("https://mr-wari-backend-production.up.railway.app/api/products");
         const data = await response.json();
 
         if (response.ok && data.products && data.products.length > 0) {
