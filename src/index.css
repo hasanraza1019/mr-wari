@@ -1,0 +1,179 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ===== DARK THEME (default) — Obsidian Black + Radiant Gold + Ajrak Crimson ===== */
+:root {
+  --bg: #0b0907;
+  --bg-panel: #14110d;
+  --bg-panel-2: #1e1913;
+  --cream: #fbf7ee;
+  --cream-dim: #9e9589;
+  --gold: #e5a922;
+  --gold-dim: #b38215;
+  --ajrak-red: #a12330;
+  --ajrak-indigo: #1b3831;
+  --line: rgba(245, 230, 200, 0.08);
+}
+
+/* ===== LIGHT THEME ===== */
+.light {
+  --bg: #f9f8f4;
+  --bg-panel: #ffffff;
+  --bg-panel-2: #f0ede1;
+  --cream: #17130e;
+  --cream-dim: #6e675b;
+  --gold: #b88616;
+  --gold-dim: #8a640f;
+  --ajrak-red: #931a29;
+  --ajrak-indigo: #123a33;
+  --line: rgba(23, 19, 14, 0.08);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--cream);
+  font-family: "Inter", sans-serif;
+  overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+::selection {
+  background: var(--gold);
+  color: #14110d;
+}
+
+h1, h2, h3, .font-display {
+  font-family: "Anton", sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  line-height: 1.05;
+}
+
+/* Radiant Gold Text Gradient */
+.text-gold-gradient {
+  background: linear-gradient(135deg, #FFE27A 0%, #E5A922 50%, #B38215 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Radiant Gold Button Gradient */
+.btn-gold {
+  background: linear-gradient(135deg, #F3C34D 0%, #E5A922 50%, #C98E12 100%);
+  color: #14110d;
+  font-weight: 700;
+  box-shadow: 0 4px 20px rgba(229, 169, 34, 0.25);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-gold:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(229, 169, 34, 0.4);
+}
+
+.btn-gold:active {
+  transform: translateY(0);
+}
+
+/* Glassmorphism panel */
+.glass-panel {
+  background: rgba(20, 17, 13, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--line);
+}
+
+.light .glass-panel {
+  background: rgba(255, 255, 255, 0.85);
+}
+
+/* Ajrak pattern strip -- signature brand element */
+.ajrak-strip {
+  height: 12px;
+  width: 100%;
+  background-image: repeating-linear-gradient(
+    45deg,
+    var(--ajrak-red) 0 10px,
+    var(--ajrak-indigo) 10px 20px,
+    var(--gold) 20px 26px,
+    var(--ajrak-red) 26px 36px
+  );
+  background-size: 50px 50px;
+}
+
+.text-outline {
+  -webkit-text-stroke: 2px var(--cream);
+  color: transparent;
+}
+
+.text-outline-gold {
+  -webkit-text-stroke: 1.5px var(--gold);
+  color: transparent;
+}
+
+/* Scroll reveal animation fallback */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.in {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* Shimmer Loading Skeleton */
+.skeleton-shimmer {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.03) 0%,
+    rgba(255, 255, 255, 0.09) 50%,
+    rgba(255, 255, 255, 0.03) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--gold-dim);
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gold);
+}
