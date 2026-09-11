@@ -28,11 +28,34 @@ export function resolveAssetUrl(value = "") {
   }
 
   const localImageFallbacks = {
-    "/products/zinger-burger.jpg": "/products/chicken-zinger-burger.jpg",
-    "/products/fish-fillet.jpg": "/products/bbq-platter.jpg",
-    "/products/lime-soda.jpg": "/products/fresh-lemonade.jpg",
-    "/products/paneer-tikka.jpg": "/products/chicken-tikka.jpg",
-    "/products/cheese-pizza.jpg": "/products/mister-wari-grill-platter.jpg",
+    "/products/chicken-biryani.jpg":
+      "https://images.unsplash.com/photo-1559528896-c5310744cce8?auto=format&fit=crop&w=800&q=80",
+    "/products/chicken-pulao.jpg":
+      "https://images.unsplash.com/photo-1631515243349-e0cb75fb8d3a?auto=format&fit=crop&w=800&q=80",
+    "/products/zinger-burger.jpg":
+      "https://images.unsplash.com/photo-1460306855393-0410f61241c7?auto=format&fit=crop&w=800&q=80",
+    "/products/chicken-zinger-burger.jpg":
+      "https://images.unsplash.com/photo-1460306855393-0410f61241c7?auto=format&fit=crop&w=800&q=80",
+    "/products/fish-fillet.jpg":
+      "https://images.unsplash.com/photo-1534940510219-ccf7d8f2b7c1?auto=format&fit=crop&w=800&q=80",
+    "/products/lime-soda.jpg":
+      "https://images.unsplash.com/photo-1546173159-315724a31696?auto=format&fit=crop&w=800&q=80",
+    "/products/fresh-lemonade.jpg":
+      "https://images.unsplash.com/photo-1546173159-315724a31696?auto=format&fit=crop&w=800&q=80",
+    "/products/paneer-tikka.jpg":
+      "https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?auto=format&fit=crop&w=800&q=80",
+    "/products/cheese-pizza.jpg":
+      "https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&fit=crop&w=800&q=80",
+    "/products/mister-wari-grill-platter.jpg":
+      "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80",
+    "/products/bbq-platter.jpg":
+      "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80",
+    "/products/chicken-tikka.jpg":
+      "https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?auto=format&fit=crop&w=800&q=80",
+    "/products/gulab-jamun.jpg":
+      "https://images.unsplash.com/photo-1593701461250-d7b22dfd3a77?auto=format&fit=crop&w=800&q=80",
+    "/products/fresh-salad.jpg":
+      "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=800&q=80",
   };
   const path = value.startsWith("/") ? value : `/${value}`;
   const resolvedPath = localImageFallbacks[path] || path;
