@@ -15,6 +15,7 @@ import {
   ShieldCheck,
 } from "lucide-react";
 import { socket } from "../lib/socket";
+import { getProductImage } from "../config";
 
 const SIDEBAR_ITEMS = [
   { key: "dashboard", label: "Dashboard", icon: LayoutDashboard },
@@ -201,10 +202,21 @@ export default function AdminDashboard() {
   function handleChange(e) {
     const { name, value, type, checked } = e.target;
 
-    setForm((current) => ({
-      ...current,
-      [name]: type === "checkbox" ? checked : value,
-    }));
+    setForm((current) => {
+      const next = {
+        ...current,
+        [name]: type === "checkbox" ? checked : value,
+      };
+
+      if ((name === "name" || name === "category") && !current.image_url.trim()) {
+        next.image_url = getProductImage(
+          name === "name" ? value : current.name,
+          name === "category" ? value : current.category
+        );
+      }
+
+      return next;
+    });
   }
 
   function resetForm() {
@@ -258,7 +270,7 @@ export default function AdminDashboard() {
           description: form.description.trim(),
           price: Number(form.price),
           category: form.category.trim(),
-          image_url: form.image_url.trim(),
+          image_url: form.image_url.trim() || getProductImage(form.name, form.category),
           is_available: form.is_available,
         }),
       });

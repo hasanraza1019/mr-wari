@@ -10,6 +10,7 @@ export default function MenuItemCard({ item }) {
   const { cart, addItem, increaseItem, decreaseItem } = useCart();
   const { showToast } = useToast();
   const [showModal, setShowModal] = useState(false);
+  const [imageFailed, setImageFailed] = useState(false);
 
   const line = cart.find((l) => l.id === item.id);
   const qtyInCart = line ? line.qty : 0;
@@ -69,12 +70,13 @@ export default function MenuItemCard({ item }) {
 
         {/* Product Image */}
         <div className="relative h-48 sm:h-52 bg-bg overflow-hidden flex items-center justify-center">
-          {item.image ? (
+          {item.image && !imageFailed ? (
             <img
               src={item.image}
               alt={item.name}
               className="w-full h-full object-cover group-hover:scale-108 transition-transform duration-500"
               loading="lazy"
+              onError={() => setImageFailed(true)}
             />
           ) : (
             <div className="w-full h-full flex items-center justify-center">
