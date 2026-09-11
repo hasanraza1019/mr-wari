@@ -16,6 +16,7 @@ import {
 } from "lucide-react";
 import MenuItemCard from "./MenuItemCard";
 import { allMenuItems } from "../data/content";
+import { resolveAssetUrl } from "../config";
 
 const API_URL = "https://mr-wari-backend-production.up.railway.app/api/products";
 
@@ -63,7 +64,7 @@ export default function MenuTabs({ showSearch = true, defaultCategory = "all" })
               description: product.description || "",
               price: Number(product.price),
               category: formatCategory(product.category),
-              image: product.image_url || "",
+              image: resolveAssetUrl(product.image_url || ""),
               rating: 4.8,
               reviewCount: 120,
               isPopular: true,

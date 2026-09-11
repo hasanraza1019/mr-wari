@@ -14,6 +14,7 @@ import FaqAccordion from "../components/FaqAccordion";
 import Reveal from "../components/Reveal";
 import { branches, galleryImages, whatsappNumber, allMenuItems } from "../data/content";
 import usePageTitle from "../hooks/usePageTitle";
+import { resolveAssetUrl } from "../config";
 
 function formatCategory(category = "") {
   return category.toLowerCase().replace(/[_\s]+/g, "-").trim();
@@ -44,7 +45,7 @@ export default function Home() {
               description: product.description || "",
               price: Number(product.price),
               category: formatCategory(product.category),
-              image: product.image_url || "",
+              image: resolveAssetUrl(product.image_url || ""),
               rating: 4.8,
               reviews: 140,
               isPopular: true,
