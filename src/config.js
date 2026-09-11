@@ -5,6 +5,14 @@ export function resolveAssetUrl(value = "") {
     return value;
   }
 
+  const localImageFallbacks = {
+    "/products/zinger-burger.jpg": "/products/chicken-zinger-burger.jpg",
+    "/products/fish-fillet.jpg": "/products/bbq-platter.jpg",
+    "/products/lime-soda.jpg": "/products/fresh-lemonade.jpg",
+    "/products/paneer-tikka.jpg": "/products/chicken-tikka.jpg",
+    "/products/cheese-pizza.jpg": "/products/mister-wari-grill-platter.jpg",
+  };
   const path = value.startsWith("/") ? value : `/${value}`;
-  return `${import.meta.env.BASE_URL.replace(/\/$/, "")}${path}`;
+  const resolvedPath = localImageFallbacks[path] || path;
+  return `${import.meta.env.BASE_URL.replace(/\/$/, "")}${resolvedPath}`;
 }
