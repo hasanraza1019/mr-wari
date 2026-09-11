@@ -23,8 +23,14 @@ export function getProductImage(name = "", category = "") {
 }
 
 export function resolveAssetUrl(value = "") {
-  if (!value || /^https?:\/\//i.test(value) || value.startsWith("data:")) {
-    return value;
+  const rawValue = String(value).trim();
+  if (!rawValue || rawValue.startsWith("data:")) {
+    return rawValue;
+  }
+
+  const absoluteUrlIndex = rawValue.search(/https?:\/\//i);
+  if (absoluteUrlIndex >= 0) {
+    return rawValue.slice(absoluteUrlIndex);
   }
 
   const localImageFallbacks = {
@@ -57,7 +63,7 @@ export function resolveAssetUrl(value = "") {
     "/products/fresh-salad.jpg":
       "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=800&q=80",
   };
-  const path = value.startsWith("/") ? value : `/${value}`;
+  const path = rawValue.startsWith("/") ? rawValue : `/${rawValue}`;
   const resolvedPath = localImageFallbacks[path] || path;
   return `${import.meta.env.BASE_URL.replace(/\/$/, "")}${resolvedPath}`;
 }
